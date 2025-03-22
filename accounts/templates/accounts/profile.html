@@ -1,0 +1,11 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Профиль пользователя</title>
+</head>
+<body>
+    <h2>Добро пожаловать, {{ request.user.profile.alias }}</h2>
+    <p>Ваш username в системе: {{ request.user.username }}</p>
+</body>
+</html>
