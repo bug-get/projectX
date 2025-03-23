@@ -69,4 +69,5 @@ def telegram_login(request):
         return render(request, 'accounts/telegram_login.html')
 
 def profile(request):
+    logger.info("--------> зашли в profile ")
     return render(request, 'accounts/profile.html')
