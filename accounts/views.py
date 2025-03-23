@@ -10,6 +10,7 @@ logger = logging.getLogger(__name__)
 
 def telegram_login(request):
     if request.method == 'GET' and request.GET:
+        logger.info("Получены GET-параметры от Telegram:")
         logger.info("Получены GET-параметры от Telegram: %s", request.GET.dict())
         auth_data = request.GET.dict()
         received_hash = auth_data.pop('hash', None)
