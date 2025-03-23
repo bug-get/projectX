@@ -12,6 +12,33 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 import os
 from pathlib import Path
 
+LOGGING = {
+    'version': 1,  # обязательное поле
+    'disable_existing_loggers': False,  # позволяет не отключать встроенные логгеры Django
+    'handlers': {
+        'console': {  # вывод логов в консоль
+            'class': 'logging.StreamHandler',
+        },
+    },
+    'root': {
+        'handlers': ['console'],  # корневой логгер будет выводить логи в консоль
+        'level': 'INFO',  # минимальный уровень логирования для корневого логгера
+    },
+    'loggers': {
+        'django': {
+            'handlers': ['console'],
+            'level': 'INFO',
+            'propagate': False,
+        },
+        # Можно добавить отдельный логгер для вашего приложения:
+        'accounts': {
+            'handlers': ['console'],
+            'level': 'DEBUG',  # можно выставить DEBUG, если требуется подробный вывод
+            'propagate': False,
+        },
+    },
+}
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 STATIC_URL = '/static/'
