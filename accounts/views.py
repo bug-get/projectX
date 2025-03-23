@@ -66,7 +66,7 @@ def telegram_login(request):
         logger.info("Данные пользователя из базы: %s, alias: %s", user_from_db, user_from_db.profile.alias)
         return redirect('profile')
     else:
-        logger.info("сработал else в telegram_login")
+        logger.info("Ветка else: GET-параметры отсутствуют. request.GET: %s", request.GET.dict())
         return render(request, 'accounts/telegram_login.html')
 
 def profile(request):
