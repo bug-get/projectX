@@ -1,3 +1,4 @@
+# accounts/apps.py
 from django.apps import AppConfig
 
 class AccountsConfig(AppConfig):
@@ -5,3 +6,4 @@ class AccountsConfig(AppConfig):
 
     def ready(self):
         import accounts.signals
+        print("Сигналы из accounts.signals импортированы")
